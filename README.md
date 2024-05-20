@@ -20,7 +20,7 @@ Project: Maven
 
 ## Banco de dados
 
--  H2 : para testes
+-  H2 :  testes
 -  PostgreSQL : para versão em "produção"
 
 ## Segurança 
