@@ -10,6 +10,9 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,9 +26,9 @@ public class UserService {
     private UserRepository repository;
 
   @Transactional
-    public List<UserDTO> findAll() {
-        List<User> list = repository.findAll();
-       return list.stream().map(x ->new UserDTO(x)). collect(Collectors.toList());
+    public Page<UserDTO> findAllPaged(PageRequest pageRequest) {
+    Page<User> list = repository.findAll(pageRequest);
+       return list.map(x -> new UserDTO(x));
 
     }
     @Transactional
@@ -74,4 +77,6 @@ public class UserService {
       throw new DatabaseException("Integrity violation");
     }
   }
+
+
 }
