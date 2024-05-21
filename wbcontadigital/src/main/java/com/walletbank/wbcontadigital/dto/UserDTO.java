@@ -1,32 +1,30 @@
-package com.walletbank.wbcontadigital.entities;
+package com.walletbank.wbcontadigital.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.walletbank.wbcontadigital.entities.User;
 
 import java.io.Serializable;
-import java.util.Objects;
 
-@Entity
-@Table(name = "tb_users")
-public class User implements Serializable {
-    public String getId;
-    @Id
+public class UserDTO implements Serializable {
+
     private String id;
     private String nome;
     private String telefone;
     private String email;
 
-    public User(){
-
-    }
-    public User(String id, String nome, String telefone, String email) {
+    public UserDTO(String id, String nome, String telefone, String email) {
         this.id = id;
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
     }
 
+    public UserDTO(User entity){
+        this.id = entity.getId();
+        this.nome  = entity.getNome();
+        this.telefone = entity.getTelefone();
+        this.email = entity.getEmail();
+
+    }
     public String getId() {
         return id;
     }
@@ -57,18 +55,5 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof User)) return false;
-        User user = (User) o;
-        return getId().equals(user.getId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
     }
 }
