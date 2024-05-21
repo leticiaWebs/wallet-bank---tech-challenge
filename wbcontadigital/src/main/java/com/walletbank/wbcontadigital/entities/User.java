@@ -1,10 +1,9 @@
 package com.walletbank.wbcontadigital.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Objects;
 
 @Entity
@@ -16,6 +15,12 @@ public class User implements Serializable {
     private String nome;
     private String telefone;
     private String email;
+
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    private Instant createdAt;
+
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    private Instant updateAt;
 
     public User(){
 
@@ -58,6 +63,24 @@ public class User implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public Instant getUpdateAt() {
+        return updateAt;
+    }
+
+    @PrePersist
+    public void prePersist(){
+        createdAt = Instant.now();
+    }
+    @PreUpdate
+    public void preUpdate(){
+        updateAt = Instant.now();
+    }
+
 
     @Override
     public boolean equals(Object o) {

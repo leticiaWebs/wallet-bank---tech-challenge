@@ -6,6 +6,7 @@ import com.walletbank.wbcontadigital.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.service.annotation.DeleteExchange;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -35,5 +36,15 @@ public class UserResource {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
+    }
+    @PutMapping (value = "/{id}")
+    public ResponseEntity<UserDTO> insert (@PathVariable String id, @RequestBody UserDTO dto) {
+        dto = service.update(id, dto);
+        return ResponseEntity.ok().body(dto);
+    }
+    @DeleteMapping (value = "/{id}")
+    public ResponseEntity<UserDTO> delete (@PathVariable String id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }
