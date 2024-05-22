@@ -1,8 +1,8 @@
 package com.walletbank.wbcontadigital.services;
 
-import com.walletbank.wbcontadigital.dto.UserDTO;
-import com.walletbank.wbcontadigital.entities.User;
-import com.walletbank.wbcontadigital.repositories.UserRepository;
+import com.walletbank.wbcontadigital.dto.UserRegisterDTO;
+import com.walletbank.wbcontadigital.entities.UserRegister;
+import com.walletbank.wbcontadigital.repositories.UserRegisterRepository;
 import com.walletbank.wbcontadigital.services.exceptions.DatabaseException;
 import com.walletbank.wbcontadigital.services.exceptions.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
@@ -17,45 +17,45 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserRegisterService {
 
     @Autowired
-    private UserRepository repository;
+    private UserRegisterRepository repository;
 
   @Transactional
-    public Page<UserDTO> findAllPaged(PageRequest pageRequest) {
-    Page<User> list = repository.findAll(pageRequest);
-       return list.map(x -> new UserDTO(x));
+    public Page<UserRegisterDTO> findAllPaged(PageRequest pageRequest) {
+    Page<UserRegister> list = repository.findAll(pageRequest);
+       return list.map(x -> new UserRegisterDTO(x));
 
     }
     @Transactional
-    public UserDTO findById(String id) {
-      Optional<User> obj = repository.findById(id);
-      User entity = obj.orElseThrow(() ->new ResourceNotFoundException("Entity not found"));
-      return new UserDTO(entity);
+    public UserRegisterDTO findById(String id) {
+      Optional<UserRegister> obj = repository.findById(id);
+      UserRegister entity = obj.orElseThrow(() ->new ResourceNotFoundException("Entity not found"));
+      return new UserRegisterDTO(entity);
     }
 
     @Transactional
-    public UserDTO insert(UserDTO dto) {
-      User entity = new User();
+    public UserRegisterDTO insert(UserRegisterDTO dto) {
+      UserRegister entity = new UserRegister();
       entity.setId(dto.getId());
       entity.setNome(dto.getNome());
       entity.setTelefone(dto.getTelefone());
       entity.setEmail(dto.getEmail());
       repository.save(entity);
-      return new UserDTO(entity);
+      return new UserRegisterDTO(entity);
     }
 
   @Transactional
-    public UserDTO update(String id, UserDTO dto) {
+    public UserRegisterDTO update(String id, UserRegisterDTO dto) {
     try {
-      User entity = repository.getReferenceById(id);
+      UserRegister entity = repository.getReferenceById(id);
       entity.setId(dto.getId());
       entity.setNome(dto.getNome());
       entity.setTelefone(dto.getTelefone());
       entity.setEmail(dto.getEmail());
       entity = repository.save(entity);
-      return new UserDTO(entity);
+      return new UserRegisterDTO(entity);
     }
     catch(EntityNotFoundException e){
       throw new ResourceNotFoundException("Id not found" + id);
