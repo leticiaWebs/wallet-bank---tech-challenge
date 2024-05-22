@@ -1,16 +1,13 @@
 package com.walletbank.wbcontadigital.controller;
 
 import com.walletbank.wbcontadigital.dto.UserDTO;
-import com.walletbank.wbcontadigital.entities.User;
 import com.walletbank.wbcontadigital.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.ScrollPosition;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.service.annotation.DeleteExchange;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;

@@ -25,3 +25,8 @@ INSERT INTO tb_users (id, nome, telefone, email) VALUES ('27246730127', 'Ana Pau
 INSERT INTO tb_users (id, nome, telefone, email) VALUES ('28356091738', 'Felipe Oliveira', '96662255', 'felipeoliveira@example.com');
 INSERT INTO tb_users (id, nome, telefone, email) VALUES ('29461850349', 'Camila Almeida', '98881122', 'camilaalmeida@example.com');
 INSERT INTO tb_users (id, nome, telefone, email) VALUES ('30573918250', 'Lucas Costa', '93330011', 'lucascosta@example.com');
+INSERT INTO tb_account (NUMERO_CONTA, agencia, TIPO_CONTA) VALUES ('123456-7', '001', 'Corrente');
+INSERT INTO tb_account (NUMERO_CONTA, agencia, TIPO_CONTA) VALUES ('987654-3', '002', 'Poupança');
+INSERT INTO tb_account (NUMERO_CONTA, agencia, TIPO_CONTA) VALUES ('456789-0', '003', 'Corrente');
+INSERT INTO tb_account (NUMERO_CONTA, agencia, TIPO_CONTA) VALUES ('321654-8', '001', 'Poupança');
+INSERT INTO tb_account (NUMERO_CONTA, agencia, TIPO_CONTA) VALUES ('555555-5', '004', 'Corrente');
