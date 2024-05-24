@@ -1,4 +1,4 @@
-package com.walletbank.wbcontadigital.entities;
+package com.walletbank.wbcontadigital.domain;
 
 public enum UserRoles {
     ADMIN("admin"),

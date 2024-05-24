@@ -1,28 +1,30 @@
-package com.walletbank.wbcontadigital.dto;
+package com.walletbank.wbcontadigital.domain;
 
-import com.walletbank.wbcontadigital.entities.Account;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.Objects;
 
-public class AccountDTO implements Serializable {
+@Entity
+@Table(name = "tb_account")
+public class Account implements Serializable {
+
+    @Id
     private int id;
     private String numeroConta;
     private String agencia;
     private String tipoConta;
 
-    public AccountDTO(int id, String numeroConta, String agencia, String tipoConta) {
+    public Account(){
+
+    }
+
+    public Account(int id, String numeroConta, String agencia, String tipoConta) {
         this.id = id;
         this.numeroConta = numeroConta;
         this.agencia = agencia;
         this.tipoConta = tipoConta;
     }
-
-   public AccountDTO(Account entity){
-        this.id = entity.getId();
-        this.agencia = entity.getAgencia();
-        this.tipoConta = entity.getTipoConta();
-        this.numeroConta = entity.getNumeroConta();
-   }
 
     public int getId() {
         return id;
@@ -54,5 +56,19 @@ public class AccountDTO implements Serializable {
 
     public void setTipoConta(String tipoConta) {
         this.tipoConta = tipoConta;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Account)) return false;
+        Account account = (Account) o;
+        return getNumeroConta().equals(account.getNumeroConta());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNumeroConta());
     }
 }

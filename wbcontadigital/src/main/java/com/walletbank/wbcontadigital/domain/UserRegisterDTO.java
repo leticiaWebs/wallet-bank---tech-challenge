@@ -1,6 +1,5 @@
-package com.walletbank.wbcontadigital.dto;
+package com.walletbank.wbcontadigital.domain;
 
-import com.walletbank.wbcontadigital.entities.UserRegister;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

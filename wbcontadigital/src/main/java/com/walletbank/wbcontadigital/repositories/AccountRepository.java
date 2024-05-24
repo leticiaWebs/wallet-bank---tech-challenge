@@ -1,6 +1,6 @@
 package com.walletbank.wbcontadigital.repositories;
 
-import com.walletbank.wbcontadigital.entities.Account;
+import com.walletbank.wbcontadigital.domain.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

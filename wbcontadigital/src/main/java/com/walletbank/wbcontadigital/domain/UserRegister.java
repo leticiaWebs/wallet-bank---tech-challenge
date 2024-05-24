@@ -1,4 +1,4 @@
-package com.walletbank.wbcontadigital.entities;
+package com.walletbank.wbcontadigital.domain;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

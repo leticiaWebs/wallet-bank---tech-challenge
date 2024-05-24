@@ -1,7 +1,7 @@
 package com.walletbank.wbcontadigital.services;
 
-import com.walletbank.wbcontadigital.dto.UserRegisterDTO;
-import com.walletbank.wbcontadigital.entities.UserRegister;
+import com.walletbank.wbcontadigital.domain.UserRegisterDTO;
+import com.walletbank.wbcontadigital.domain.UserRegister;
 import com.walletbank.wbcontadigital.repositories.UserRegisterRepository;
 import com.walletbank.wbcontadigital.services.exceptions.DatabaseException;
 import com.walletbank.wbcontadigital.services.exceptions.ResourceNotFoundException;

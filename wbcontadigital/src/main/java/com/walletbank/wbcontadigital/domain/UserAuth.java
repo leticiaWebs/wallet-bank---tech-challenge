@@ -1,4 +1,4 @@
-package com.walletbank.wbcontadigital.entities;
+package com.walletbank.wbcontadigital.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -24,6 +24,12 @@ public class UserAuth implements UserDetails {
     private String login;
     private String password;
     private UserRoles role;
+
+    public UserAuth( String login, String password, UserRoles role) {
+        this.login = login;
+        this.password = password;
+        this.role = role;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

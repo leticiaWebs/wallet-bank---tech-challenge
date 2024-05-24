@@ -1,6 +1,6 @@
 package com.walletbank.wbcontadigital.controller;
 
-import com.walletbank.wbcontadigital.dto.UserRegisterDTO;
+import com.walletbank.wbcontadigital.domain.UserRegisterDTO;
 import com.walletbank.wbcontadigital.services.UserRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
